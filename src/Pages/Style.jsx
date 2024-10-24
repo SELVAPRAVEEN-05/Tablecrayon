@@ -5,7 +5,7 @@ import {
   tableCellClasses,
   TableRow,
 } from "@mui/material";
-import {  IoCheckmarkDoneSharp } from "react-icons/io5";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 export const Outline = styled(Box)(() => ({
   backgroundColor: "#F0F0F0",
@@ -19,6 +19,25 @@ export const Searchbar = styled(Box)(() => ({
   backgroundColor: "#FFFFFF",
   height: "85%",
   width: "80%",
+}));
+
+export const Heading = styled(Box)(() => ({
+    display: "flex",
+    alignItems: "center",
+    height: "70px",
+    justifyContent: "space-between",
+  }));
+
+  export const Titlehead = styled(Box)(() => ({
+    color: "#353448",
+    fontSize: "20px",
+    fontWeight: "600",
+  }));
+
+export const Container = styled(Box)(() => ({
+  height: "98%",
+  width: "97%",
+  overflow: "hidden",
 }));
 
 export const Table1 = styled(Box)(() => ({
@@ -37,8 +56,8 @@ export const DoneIcon = styled(IoCheckmarkDoneSharp)(({ response }) => ({
   color: response === "yes" ? "#665CD7" : "#E5E5E5",
   fontSize: "18px",
   marginLeft: "40px",
-  display:'flex',
-  alignItems:'center'
+  display: "flex",
+  alignItems: "center",
 }));
 
 export const Filter = styled(Box)(() => ({
@@ -99,23 +118,7 @@ export const StyledTableRow = styled(TableRow)(() => ({
 }));
 
 export const stylesnew = {
-  boxContainer: {
-    height: "98%",
-    width: "97%",
-    overflow: "hidden",
-  },
-  heading: {
-    display: "flex",
-    alignItems: "center",
-    height: "70px",
-    justifyContent: "space-between",
-  },
 
-  title: {
-    color: "#353448",
-    fontSize: "20px",
-    fontWeight: "600",
-  },
 
   searchicon: {
     fontSize: "25px",
@@ -151,7 +154,7 @@ export const stylesnew = {
     textDecoration: "underline",
     cursor: "pointer",
     display: "flex",
-    marginBottom :'-10px',
+    marginBottom: "-10px",
     marginLeft: "25px",
   },
 
