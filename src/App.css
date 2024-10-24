@@ -1,0 +1,14 @@
+.search{
+    height: 90%;
+    width: 100%;
+    border: none;
+}
+
+.search:focus{
+    outline: none;
+}
+
+.search::placeholder{
+    color: #C2C1C7;
+    font-size: 14px;
+}
