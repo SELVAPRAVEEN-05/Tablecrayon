@@ -5,8 +5,8 @@ import { stylesnew } from '../../Pages/Style'
 function Buttonsty({reminder}) {
   return (
     <Button sx={stylesnew.button(reminder)}>
-  {reminder}
-</Button>
+     {reminder}
+    </Button>
 
   )
 }

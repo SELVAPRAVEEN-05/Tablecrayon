@@ -5,6 +5,8 @@ import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Avatar from "@mui/material/Avatar";
+import photo from '../assets/image1.jpg';
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import {
   Outline,
   stylesnew,
@@ -14,7 +16,6 @@ import {
   StyledTableRow,
   DoneIcon,
   Signalcolour,
-  
 } from "./Style";
 import Searchstar from "../components/Search/Search";
 import Filterstar from "../components/Iconbutton/Filter";
@@ -25,111 +26,112 @@ function HomeTable() {
     {
       id: "1",
       date: "31 Jan 2023, 01:30 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "George Fernandes",
       signal: "Communication",
       performance: "Excellent",
       response: "yes",
-      view: "view",
+      view: "View",
       reminder: "Add",
     },
     {
       id: "2",
       date: "31 Jan 2023, 02:00 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "Maria Lopez",
       signal: "Teamwork",
       performance: "Very Good",
       response: "yes",
-      view: "view",
+      view: "View",
       reminder: "Added",
     },
     {
       id: "3",
       date: "31 Jan 2023, 03:30 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "John Doe",
       signal: "Leadership",
       performance: "Need Improvement",
       response: "no",
-      view: "view",
+      view: "View",
       reminder: "Add",
     },
     {
       id: "1",
       date: "31 Jan 2023, 01:30 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "George Fernandes",
       signal: "Communication",
       performance: "Average",
       response: "yes",
-      view: "view",
+      view: "View",
       reminder: "Add",
     },
     {
       id: "2",
       date: "31 Jan 2023, 02:00 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "Maria Lopez",
       signal: "Teamwork",
       performance: "Very Good",
       response: "yes",
-      view: "view",
+      view: "View",
       reminder: "Added",
     },
     {
       id: "3",
       date: "31 Jan 2023, 03:30 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "John Doe",
       signal: "Leadership",
       performance: "Need Improvement",
       response: "no",
-      view: "view",
+      view: "View",
       reminder: "Add",
     },
     {
       id: "1",
       date: "31 Jan 2023, 01:30 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "George Fernandes",
       signal: "Communication",
       performance: "Excellent",
       response: "yes",
-      view: "view",
+      view: "View",
       reminder: "Added",
     },
     {
       id: "2",
       date: "31 Jan 2023, 02:00 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "Maria Lopez",
       signal: "Teamwork",
       performance: "Very Good",
       response: "yes",
-      view: "view",
+      view: "View",
       reminder: "Added",
     },
+    
     {
       id: "3",
       date: "31 Jan 2023, 03:30 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "John Doe",
       signal: "Leadership",
       performance: "Need Improvement",
       response: "no",
-      view: "view",
+      view: "View",
       reminder: "Add",
     },
     {
       id: "1",
       date: "31 Jan 2023, 01:30 PM",
-      nameprofile: {},
+      nameprofile: photo,
       name: "George Fernandes",
       signal: "Communication",
       performance: "Excellent",
       response: "yes",
-      view: "view",
+      view: "View",
       reminder: "Add",
     },
   ];
@@ -210,7 +212,7 @@ function HomeTable() {
                 <StyledTableRow key={row.id}>
                   <StyledTableCell>{row.date}</StyledTableCell>
                   <StyledTableCell sx={stylesnew.flex}>
-                    <Avatar sx={stylesnew.photo} />
+                    <Avatar src={row.nameprofile} sx={stylesnew.photo} />
                     {row.name}
                   </StyledTableCell>
                   <StyledTableCell>{row.signal}</StyledTableCell>
@@ -224,7 +226,9 @@ function HomeTable() {
                   <StyledTableCell sx={{ ...stylesnew.view }}>
                     {row.view}
                   </StyledTableCell>
-                  <StyledTableCell><Buttonsty reminder={row.reminder}/></StyledTableCell>
+                  <StyledTableCell >
+                    <Buttonsty reminder={row.reminder} />
+                  </StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

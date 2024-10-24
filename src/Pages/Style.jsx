@@ -5,7 +5,7 @@ import {
   tableCellClasses,
   TableRow,
 } from "@mui/material";
-import { IoCheckmarkDoneOutline } from "react-icons/io5";
+import {  IoCheckmarkDoneSharp } from "react-icons/io5";
 
 export const Outline = styled(Box)(() => ({
   backgroundColor: "#F0F0F0",
@@ -33,9 +33,12 @@ export const Flex = styled(Box)(() => ({
   display: "flex",
   gap: "10px",
 }));
-export const DoneIcon = styled(IoCheckmarkDoneOutline)(({ response }) => ({
+export const DoneIcon = styled(IoCheckmarkDoneSharp)(({ response }) => ({
   color: response === "yes" ? "#665CD7" : "#E5E5E5",
   fontSize: "18px",
+  marginLeft: "40px",
+  display:'flex',
+  alignItems:'center'
 }));
 
 export const Filter = styled(Box)(() => ({
@@ -79,7 +82,7 @@ export const Signalcolour = styled(Box)(({ performance }) => ({
 export const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.body}`]: {
     fontSize: 15,
-    height: "20px",
+    height: "18px",
     color: "#353448",
   },
   [`&.${tableCellClasses.head}`]: {
@@ -111,12 +114,13 @@ export const stylesnew = {
   title: {
     color: "#353448",
     fontSize: "20px",
-    fontWeight:'600'
+    fontWeight: "600",
   },
 
   searchicon: {
-    fontSize: "28px",
+    fontSize: "25px",
     marginLeft: "8px",
+    marginRight: "8px",
     display: "flex",
     alignItems: "center",
     height: "100%",
@@ -138,23 +142,27 @@ export const stylesnew = {
   },
 
   photo: {
-    width: 28,
-    height: 28,
+    width: 27,
+    height: 27,
   },
 
   view: {
     color: "#49C792 !important",
     textDecoration: "underline",
     cursor: "pointer",
+    display: "flex",
+    marginBottom :'-10px',
+    marginLeft: "25px",
   },
 
   button: (reminder) => ({
-    backgroundColor: reminder === 'Added' ? '#B9B9B9' : '#49C792',
+    backgroundColor: reminder === "Added" ? "#B9B9B9" : "#49C792",
     borderRadius: "4px",
-    padding: '2.5px 0px',
-    width: '65px',
-    fontSize: '12px',
-    color: '#FFFFFF',
+    padding: "2px 0px",
+    width: "65px",
+    fontSize: "12px",
+    color: "#FFFFFF",
+    marginLeft: "10px",
     textTransform: "none",
-  })
+  }),
 };
