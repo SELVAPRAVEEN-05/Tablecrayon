@@ -1,5 +1,5 @@
 import React from "react";
-import { Filter } from "../../Pages/Style";
+import { Filter } from "./Style";
 import { CiFilter } from "react-icons/ci";
 
 function Filterstar() {

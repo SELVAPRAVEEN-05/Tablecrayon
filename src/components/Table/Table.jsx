@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Table from "@mui/material/Table";
-import { Box, TablePagination } from "@mui/material";
+import {  TablePagination } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Avatar from "@mui/material/Avatar";
 import photo from "../../assets/image1.jpg";
-import { stylesnew } from "../../Pages/Style";
+import { stylesnew } from "./Style";
 import {
   StyledTableCell,
   StyledTableRow,
   DoneIcon,
   Signalcolour,
-} from "../../Pages/Style";
+} from "./Style";
 import Buttonsty from "../Button/Button";
 function Tablesty() {
   const Rowdata = [

@@ -1,6 +1,6 @@
 import React from "react";
-import { Search, Searchbar, stylesnew } from "../../Pages/Style";
 import { IoIosSearch } from "react-icons/io";
+import { Searchbar ,Search ,stylesnew} from "./Styles";
 
 function Searchstar() {
   return (
