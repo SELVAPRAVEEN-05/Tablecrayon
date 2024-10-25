@@ -33,6 +33,8 @@ export const Table1 = styled(Box)(() => ({
   width: "100%",
   border: "1px solid #E6E6E6",
   borderRadius: "8px",
+  overflowY:'scroll',
+  scrollbarWidth:'none'
 }));
 
 export const Flex = styled(Box)(() => ({

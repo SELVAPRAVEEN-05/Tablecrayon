@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Table from "@mui/material/Table";
-import {  TablePagination } from "@mui/material";
+import { Box, TablePagination } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
@@ -14,13 +14,14 @@ import {
   Signalcolour,
 } from "./Style";
 import Buttonsty from "../Button/Button";
-function Tablesty() {
+
+function Tablesty({ searchQuery }) {
   const Rowdata = [
     {
       id: "1",
       date: "31 Jan 2023, 01:30 PM",
       nameprofile: photo,
-      name: "George Fernandes",
+      name: "Samuel Guerrero",
       signal: "Communication",
       performance: "Excellent",
       response: "yes",
@@ -50,7 +51,7 @@ function Tablesty() {
       reminder: "Add",
     },
     {
-      id: "1",
+      id: "4",
       date: "31 Jan 2023, 01:30 PM",
       nameprofile: photo,
       name: "George Fernandes",
@@ -61,7 +62,7 @@ function Tablesty() {
       reminder: "Add",
     },
     {
-      id: "2",
+      id: "5",
       date: "31 Jan 2023, 02:00 PM",
       nameprofile: photo,
       name: "Maria Lopez",
@@ -72,7 +73,7 @@ function Tablesty() {
       reminder: "Added",
     },
     {
-      id: "3",
+      id: "6",
       date: "31 Jan 2023, 03:30 PM",
       nameprofile: photo,
       name: "John Doe",
@@ -83,7 +84,7 @@ function Tablesty() {
       reminder: "Add",
     },
     {
-      id: "1",
+      id: "7",
       date: "31 Jan 2023, 01:30 PM",
       nameprofile: photo,
       name: "George Fernandes",
@@ -94,7 +95,7 @@ function Tablesty() {
       reminder: "Added",
     },
     {
-      id: "2",
+      id: "8",
       date: "31 Jan 2023, 02:00 PM",
       nameprofile: photo,
       name: "Maria Lopez",
@@ -104,9 +105,8 @@ function Tablesty() {
       view: "View",
       reminder: "Added",
     },
-
     {
-      id: "3",
+      id: "9",
       date: "31 Jan 2023, 03:30 PM",
       nameprofile: photo,
       name: "John Doe",
@@ -117,7 +117,29 @@ function Tablesty() {
       reminder: "Add",
     },
     {
-      id: "1",
+      id: "10",
+      date: "31 Jan 2023, 01:30 PM",
+      nameprofile: photo,
+      name: "George Fernandes",
+      signal: "Communication",
+      performance: "Excellent",
+      response: "yes",
+      view: "View",
+      reminder: "Add",
+    },
+    {
+      id: "11",
+      date: "31 Jan 2023, 01:30 PM",
+      nameprofile: photo,
+      name: "George Fernandes",
+      signal: "Communication",
+      performance: "Excellent",
+      response: "yes",
+      view: "View",
+      reminder: "Add",
+    },
+    {
+      id: "12",
       date: "31 Jan 2023, 01:30 PM",
       nameprofile: photo,
       name: "George Fernandes",
@@ -133,96 +155,112 @@ function Tablesty() {
     {
       id: "1",
       Header: "Date",
-      width: "180px",
     },
     {
       id: "2",
       Header: "To",
-      width: "230px",
     },
     {
       id: "3",
       Header: "Signal",
-      width: "150px",
     },
     {
       id: "4",
       Header: "Performance",
-      width: "120px",
     },
     {
       id: "5",
       Header: "Response",
-      width: "100px",
     },
     {
       id: "6",
       Header: "Feedback",
-      width: "100px",
     },
     {
       id: "7",
       Header: "Reminder",
-      width: "100px",
     },
   ];
 
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
+    setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
 
+  const filteredRows = Rowdata.filter((row) =>
+    row.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const currentPageRows = filteredRows.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage
+  );
+
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          {Column.map((column) => (
-            <StyledTableCell key={column.id}>{column.Header}</StyledTableCell>
-          ))}
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {Rowdata.map((row) => (
-          <StyledTableRow key={row.id}>
-            <StyledTableCell>{row.date}</StyledTableCell>
-            <StyledTableCell sx={stylesnew.flex}>
-              <Avatar src={row.nameprofile} sx={stylesnew.photo} />
-              {row.name}
-            </StyledTableCell>
-            <StyledTableCell>{row.signal}</StyledTableCell>
-            <StyledTableCell sx={stylesnew.flex}>
-              <Signalcolour performance={row.performance} />
-              {row.performance}
-            </StyledTableCell>
-            <StyledTableCell>
-              <DoneIcon response={row.response} />
-            </StyledTableCell>
-            <StyledTableCell sx={{ ...stylesnew.view }}>
-              {row.view}
-            </StyledTableCell>
-            <StyledTableCell>
-              <Buttonsty reminder={row.reminder} />
-            </StyledTableCell>
-          </StyledTableRow>
-        ))}
-      </TableBody>
+    <Box>
+      <Box sx={stylesnew.out}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              {Column.map((column) => (
+                <StyledTableCell key={column.id} align={column.Header}>
+                  {column.Header}
+                </StyledTableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {currentPageRows.map((row) => (
+              <StyledTableRow  key={row.id}>
+                <StyledTableCell>{row.date}</StyledTableCell>
+                <StyledTableCell>
+                  <Box sx={stylesnew.flex}>
+                    <Avatar src={row.nameprofile} sx={stylesnew.photo} />
+                    {row.name}
+                  </Box>
+                </StyledTableCell>
+                <StyledTableCell>{row.signal}</StyledTableCell>
+                <StyledTableCell>
+                  <Box sx={stylesnew.flex}>
+                    <Signalcolour performance={row.performance} />
+                    {row.performance}
+                  </Box>
+                </StyledTableCell>
+                <StyledTableCell>
+                  <Box sx={stylesnew.center}>
+                    <DoneIcon response={row.response} />
+                  </Box>
+                </StyledTableCell>
+                <StyledTableCell sx={{ ...stylesnew.view }}>
+                  {row.view}
+                </StyledTableCell>
+                <StyledTableCell>
+                  <Box sx={stylesnew.center}>
+                    <Buttonsty reminder={row.reminder} />
+                  </Box>
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Box>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        count={Rowdata.length}
+        rowsPerPageOptions={[5, 10, 25, 100]}
+        count={filteredRows.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
         sx={stylesnew.tablefooterc}
       />
-    </Table>
+    </Box>
   );
 }
 
