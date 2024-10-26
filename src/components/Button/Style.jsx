@@ -1,11 +1,12 @@
 export const stylesnew = {
     button: (reminder) => ({
-        backgroundColor: reminder === "Added" ? "#B9B9B9" : "#49C792",
+        backgroundColor: reminder === "no" ? "#B9B9B9" : "#49C792",
         borderRadius: "4px",
-        width: "65px",
+        padding:'0 15px',
         height:'28px',
-        fontSize: "12px",
+        fontSize: "13px",
         color: "#FFFFFF",
         textTransform: "none",
+        minWidth:'68px'
       }),
 }

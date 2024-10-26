@@ -1,17 +1,17 @@
 import React from "react";
-import { Box } from "@mui/material";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomeTable from "../Pages/HomeTable";
+import Home from "../Pages/Home";
+import { Outline } from "../Pages/Style";
 
 function Rouremain() {
   return (
-    <Box>
+    <Outline>
       <Router>
         <Routes>
-          <Route path="/" element={<HomeTable />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Router>
-    </Box>
+    </Outline>
   );
 }
 
